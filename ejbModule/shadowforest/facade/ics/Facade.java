@@ -5,33 +5,33 @@ import java.util.UUID;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
-import shadowforest.eao.ics.MobEAOImplLocal;
-import shadowforest.ejb.ics.Mob;
+import shadowforest.eao.ics.AccountEAOImplLocal;
+import shadowforest.ejb.ics.Account;
 
 @Stateless
 public class Facade implements FacadeLocal {
 
 	@EJB
-	private MobEAOImplLocal mobEAO;
+	private AccountEAOImplLocal accEAO;
 	
     public Facade() {
 
     }
     
-    public Mob findByMobId(String id){
-    	return mobEAO.findByMobId(id);
+    public Account findByAccountId(String accId){
+    	return accEAO.findByAccountId(accId);
     }
     
-    public Mob createMob(Mob mob){
-    	return mobEAO.createMob(mob);
+    public Account createAccount(Account account){
+    	return accEAO.createAccount(account);
     }
     
-    public Mob updateMob(Mob mob){
-    	return mobEAO.updateMob(mob);
+    public Account updateAccount(Account account){
+    	return accEAO.updateAccount(account);
     }
     
-    public void deleteMob(String id){
-    	mobEAO.deleteMob(id);
+    public void deleteAccount(String accId){
+    	accEAO.deleteAccount(accId);
     }
 
 }

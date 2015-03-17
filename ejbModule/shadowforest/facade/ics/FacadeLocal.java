@@ -4,13 +4,13 @@ import java.util.UUID;
 
 import javax.ejb.Local;
 
-import shadowforest.ejb.ics.Mob;
+import shadowforest.ejb.ics.Account;
 
 @Local
 public interface FacadeLocal {
-	public Mob findByMobId(String id);
-	public Mob createMob(Mob mob);
-	public Mob updateMob(Mob mob);
-	public void deleteMob(String id);
+	public Account findByAccountId(String accId);
+	public Account createAccount(Account account);
+	public Account updateAccount(Account account);
+	public void deleteAccount(String accId);
 
 }
