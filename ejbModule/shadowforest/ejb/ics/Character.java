@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +16,8 @@ public class Character implements Serializable{
 	private String charId;
 	private String charName;
 	private int exp;
-	
+	private Account account;
+
 	@Id
 	@Column(name="CharacterId")
 	public String getCharId() {
@@ -43,6 +46,14 @@ public class Character implements Serializable{
 		this.exp = exp;
 	}
 	
-	
+	@ManyToOne
+	@JoinColumn(name="AccId", referencedColumnName="AccId")
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
 	
 }
