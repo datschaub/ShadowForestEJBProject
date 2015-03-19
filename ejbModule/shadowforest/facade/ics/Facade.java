@@ -6,13 +6,16 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import shadowforest.eao.ics.AccountEAOImplLocal;
+import shadowforest.eao.ics.CharacterEAOImplLocal;
 import shadowforest.ejb.ics.Account;
+import shadowforest.ejb.ics.Character;
 
 @Stateless
 public class Facade implements FacadeLocal {
 
 	@EJB
 	private AccountEAOImplLocal accEAO;
+	private CharacterEAOImplLocal charEAO;
 	
     public Facade() {
 
@@ -32,6 +35,22 @@ public class Facade implements FacadeLocal {
     
     public void deleteAccount(String accId){
     	accEAO.deleteAccount(accId);
+    }
+    
+    public Character findByCharacterId(String charId){
+    	return charEAO.findByCharacterId(charId);
+    }
+    
+    public Character createCharacter(Character charvar){
+    	return charEAO.createCharacter(charvar);
+    }
+    
+    public Character updateCharacter(Character charvar){
+    	return charEAO.updateCharacter(charvar);
+    }
+    
+    public void deleteCharacter(String charId){
+    	charEAO.deleteCharacter(charId);
     }
 
 }
