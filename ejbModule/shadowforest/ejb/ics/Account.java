@@ -9,10 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
+@NamedQuery(name="Account.findByAccountName", query="SELECT a FROM Account a WHERE a.accName LIKE :accName")
 @Table(name="Account")
 public class Account implements Serializable{
 	

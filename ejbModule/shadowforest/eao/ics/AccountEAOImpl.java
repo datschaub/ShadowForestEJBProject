@@ -1,16 +1,21 @@
 package shadowforest.eao.ics;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import shadowforest.ejb.ics.Account;
 
 /**
  * Session Bean implementation class AccountEAOImpl
  */
+
 @Stateless
 public class AccountEAOImpl implements AccountEAOImplLocal {
 
@@ -43,7 +48,16 @@ public class AccountEAOImpl implements AccountEAOImplLocal {
 	}
 	
 	public Account findByAccountName(String accName){
-		return em.find(Account.class, accName);
+		TypedQuery<Account> query = em.createNamedQuery("Account.findByAccountName", Account.class);
+		
+		query.setParameter("accName", accName);
+		
+		List<Account> accList = query.getResultList();
+		
+		if(accList.size() == 1)
+			return accList.get(0);
+		
+		return null;
 	}
 
 }
