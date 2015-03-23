@@ -13,6 +13,7 @@ public interface FacadeLocal {
 	public Account createAccount(Account account);
 	public Account updateAccount(Account account);
 	public void deleteAccount(String accId);
+	public Account findByAccountName(String accName);
 	
 	public Character findByCharacterId(String charId);
 	public Character createCharacter(Character charvar);

@@ -12,5 +12,6 @@ public interface AccountEAOImplLocal {
 	public Account createAccount(Account acc);
 	public Account updateAccount(Account acc);
 	public void deleteAccount(String id);
+	public Account findByAccountName(String accName);
 
 }

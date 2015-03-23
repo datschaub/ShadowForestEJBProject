@@ -41,5 +41,9 @@ public class AccountEAOImpl implements AccountEAOImplLocal {
 			em.remove(a);
 		}
 	}
+	
+	public Account findByAccountName(String accName){
+		return em.find(Account.class, accName);
+	}
 
 }

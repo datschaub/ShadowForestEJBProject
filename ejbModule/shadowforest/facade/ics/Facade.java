@@ -37,6 +37,10 @@ public class Facade implements FacadeLocal {
     	accEAO.deleteAccount(accId);
     }
     
+    public Account findByAccountName(String accName){
+    	return accEAO.findByAccountName(accName);
+    }
+    
     public Character findByCharacterId(String charId){
     	return charEAO.findByCharacterId(charId);
     }
