@@ -21,6 +21,7 @@ public class Character implements Serializable{
 	private int baseDmgMin;
 	private int baseDmgMax;
 	private int gold;
+	private int level;
 	private Account account;
 
 	@Id
@@ -89,6 +90,14 @@ public class Character implements Serializable{
 	}
 	public void setGold(int gold){
 		this.gold = gold;
+	}
+	
+	@Column(name="Level")
+	public int getLevel(){
+		return level;
+	}
+	public void setLevel(int level){
+		this.level = level;
 	}
 	
 	
