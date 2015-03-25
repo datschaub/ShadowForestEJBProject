@@ -16,6 +16,11 @@ public class Character implements Serializable{
 	private String charId;
 	private String charName;
 	private int exp;
+	private int currentHp;
+	private int maxHp;
+	private int baseDmgMin;
+	private int baseDmgMax;
+	private int gold;
 	private Account account;
 
 	@Id
@@ -45,6 +50,47 @@ public class Character implements Serializable{
 	public void setExp(int exp) {
 		this.exp = exp;
 	}
+	@Column(name="CurrentHp")
+	public int getCurrentHp(){
+		return currentHp;
+	}
+	
+	public void setCurrentHp(int currentHp){
+		this.currentHp = currentHp;
+	}
+	
+	@Column(name="MaxHp")
+		public int getMaxHp(){
+			return maxHp;
+		}
+	public void setMaxHp(int maxHp){
+		this.maxHp = maxHp;
+	}
+	
+	@Column(name="BaseDmgMin")
+	public int getBaseDmgMin(){
+		return baseDmgMin;
+	}
+	public void setBaseDmgMin(int baseDmgMin){
+		this.baseDmgMin = baseDmgMin;
+	}
+	
+	@Column(name="BaseDmgMax")
+	public int getBaseDmgMax(){
+		return baseDmgMax;
+	}
+	public void setBaseDmgMax(int baseDmgMax){
+		this.baseDmgMax = baseDmgMax;
+	}
+	
+	@Column(name="Gold")
+	public int getGold(){
+		return gold;
+	}
+	public void setGold(int gold){
+		this.gold = gold;
+	}
+	
 	
 	@ManyToOne
 	@JoinColumn(name="AccId", referencedColumnName="AccId")
