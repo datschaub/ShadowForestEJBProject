@@ -22,7 +22,16 @@ public class Account implements Serializable{
 	private String accName;
 	private String password;
 	private Set<Character> characters;
-
+	
+	public Account(){
+		
+	}
+	
+	public Account(String accName, String password){
+		this.accName = accName;
+		this.password = password;
+	}
+	
 	@Id
 	@Column(name="AccId")
 	public String getAccId() {
@@ -58,6 +67,14 @@ public class Account implements Serializable{
 
 	public void setCharacters(Set<Character> characters) {
 		this.characters = characters;
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+
+		Account tempAcc = (Account)obj;
+		return tempAcc.getAccName().equals(this.accName) 
+				&& tempAcc.getPassword().equals(this.password);
 	}
 
 }
